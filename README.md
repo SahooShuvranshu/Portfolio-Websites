@@ -1,6 +1,6 @@
-# 🚀 Shuvranshu Sekhar Sahoo - Portfolio
+# 🚀 Dev Portfolio Website v1.0.0
 
-![Portfolio Banner](https://capsule-render.vercel.app/api?type=waving&color=00f3ff&height=200&section=header&text=Shuvranshu%20Sekhar%20Sahoo&fontSize=50&fontColor=000000&fontAlignY=35)
+![Portfolio Banner](https://capsule-render.vercel.app/api?type=waving&color=00f3ff&height=200&section=header&text=DEV%PORTFOLIO%WEBSITE%v1.0.0&fontSize=50&fontColor=000000&fontAlignY=35)
 
 <div align="center">
 
