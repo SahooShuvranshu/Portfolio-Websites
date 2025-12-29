@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuvranshu Sekhar Sahoo | Full Stack Developer</title>
+    <meta name="description" content="Shuvranshu Sekhar Sahoo - Portfolio. Full Stack Developer & Tech Enthusiast.">
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/70892515?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=Permanent+Marker&family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;500&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Core Theme Colors */
+            --bg-dark: #0a0b10;
+            --bg-panel: rgba(20, 25, 35, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-primary: #00f3ff; /* Cyan Neon */
+            --accent-secondary: #bc13fe; /* Purple Neon */
+            
+            /* UI Elements */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glass-blur: blur(12px);
+            --nav-height: 70px;
+            
+            /* Fonts */
+            --font-heading: 'Rajdhani', sans-serif;
+            --font-body: 'Roboto Mono', monospace;
+        }
+
+        /* Dynamic Theme Colors are handled by JavaScript based on the current month */
+        
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            background-image: var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            /* Use 100dvh for better mobile support */
+            min-height: 100dvh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Deep Theme Integrations & Effects --- */
+
+        /* Global Transitions */
+        .card, .nav-btn, .btn-resume, .btn-contact {
+            transition: all 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Cyberpunk: Glitch Effect & Neon Pulse */
+        body.theme-cyberpunk .section-title {
+            text-shadow: 2px 2px var(--accent-secondary), -2px -2px var(--accent-primary);
+            animation: glitch-text 3s infinite alternate;
+        }
+        
+        @keyframes glitch-text {
+            0% { text-shadow: 2px 2px var(--accent-secondary), -2px -2px var(--accent-primary); }
+            20% { text-shadow: -2px 2px var(--accent-secondary), 2px -2px var(--accent-primary); }
+            40% { text-shadow: 2px -2px var(--accent-secondary), -2px 2px var(--accent-primary); }
+            100% { text-shadow: 2px 2px var(--accent-secondary), -2px -2px var(--accent-primary); }
+        }
+
+        body.theme-cyberpunk .nav-btn:hover,
+        body.theme-cyberpunk .btn-resume:hover,
+        body.theme-cyberpunk .btn-contact:hover {
+            background: var(--accent-primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-primary);
+            transform: skewX(-10deg);
+        }
+
+        /* Minecraft / Terraria: Pixel Perfect */
+        body.theme-minecraft, body.theme-terraria {
+            image-rendering: pixelated;
+        }
+
+        /* Minecraft: Stone Button Style */
+        body.theme-minecraft .nav-btn {
+            background: #7d7d7d;
+            color: #fff;
+            border: 2px solid #3a3a3a;
+            border-top-color: #a0a0a0;
+            border-left-color: #a0a0a0;
+            box-shadow: inset -2px -2px 0px #3a3a3a, inset 2px 2px 0px #a0a0a0;
+            text-shadow: 2px 2px #000;
+            border-radius: 0;
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+        }
+        
+        body.theme-minecraft .nav-btn:hover {
+            background: #8e8e8e;
+            transform: scale(1.05);
+        }
+        
+        body.theme-minecraft .nav-btn.active {
+            background: #5b8731; /* Grass Green */
+            border-color: #2e4618;
+        }
+
+        body.theme-terraria .nav-btn:hover {
+            background: rgba(0,0,0,0.5);
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Doom: Hellish Pulse & Shake */
+        body.theme-doom .card:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+            border-color: #ff0000;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        body.theme-doom .section-title {
+            border-bottom: 3px solid #990000;
+            display: inline-block;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Hollow Knight: Void & Silk */
+        body.theme-hollow-knight .card {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(168, 185, 204, 0.1);
+            background: rgba(15, 21, 32, 0.95);
+        }
+        
+        body.theme-hollow-knight .section-title {
+            font-weight: lighter;
+            border-left: none;
+            text-align: center;
+            display: block;
+            position: relative;
+        }
+        
+        body.theme-hollow-knight .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-primary);
+            margin: 10px auto;
+        }
+
+        /* Halo: HUD Interface */
+        body.theme-halo .card {
+            border: 2px solid var(--accent-primary);
+            background: rgba(13, 17, 23, 0.8);
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            position: relative;
+        }
+        
+        body.theme-halo .card::after {
+            content: "UNSC // CLASSIFIED";
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 0.6rem;
+            color: var(--accent-primary);
+            opacity: 0.5;
+            font-family: var(--font-heading);
+        }
+        
+        body.theme-halo .nav-btn {
+            border: 1px solid var(--accent-primary);
+            background: rgba(120, 177, 89, 0.1);
+            color: var(--accent-primary);
+            border-radius: 0;
+        }
+        
+        body.theme-halo .nav-btn:hover, body.theme-halo .nav-btn.active {
+            background: var(--accent-primary);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-primary);
+        }
+        
+        body.theme-halo .section-title {
+            border-left: 5px solid var(--accent-primary);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Elden Ring: Golden Grace */
+        body.theme-elden-ring .section-title {
+            text-shadow: 0 0 10px var(--accent-primary);
+            border-left: 2px solid var(--accent-primary);
+            position: relative;
+        }
+        
+        body.theme-elden-ring .section-title::before {
+            content: "✦";
+            color: var(--accent-primary);
+            margin-right: 10px;
+            animation: pulse-grace 2s infinite;
+        }
+        
+        @keyframes pulse-grace {
+            0% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.5; transform: scale(1); }
+        }
+        
+        body.theme-elden-ring .nav-btn.active {
+            box-shadow: 0 0 15px var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+        }
+
+        /* God of War: Nordic Runes */
+        body.theme-god-of-war .section-title {
+            border-left: 5px solid #c0392b;
+            letter-spacing: 2px;
+        }
+        
+        body.theme-god-of-war .card:hover {
+            border-color: #c0392b;
+            box-shadow: 0 0 20px rgba(192, 57, 43, 0.3);
+        }
+
+        /* The Witcher: Silver & Steel */
+        body.theme-the-witcher .card {
+            border: 1px solid #c0c0c0;
+        }
+        
+        body.theme-the-witcher .nav-btn:hover {
+            color: #cd201f;
+            text-shadow: 0 0 5px #cd201f;
+        }
+
+        /* Stardew Valley: Bouncy & Cozy */
+        body.theme-stardew .nav-btn:hover {
+            transform: translateY(-3px);
+            background: #ffa000;
+            color: #fff;
+            border-radius: 15px;
+        }
+        
+        /* Breath of the Wild theme removed */
+
+        /* Terraria: Floating Islands */
+        body.theme-terraria .card:hover {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Vice City: Retro Gradient */
+        body.theme-vice-city .section-title {
+            background: linear-gradient(to right, #ff00ff, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+
+        /* Hollow Knight: Ethereal Glow */
+        body.theme-hollow-knight .section-title {
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 4px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        body.theme-hollow-knight .nav-btn:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
+        }
+
+        /* --- Theme Specific UI Overrides --- */
+
+        /* Minecraft / Terraria / Celeste (Pixel/Blocky) */
+        body.theme-minecraft .card, 
+        body.theme-minecraft .nav-btn,
+        body.theme-minecraft .btn-resume,
+        body.theme-minecraft .btn-contact,
+        body.theme-terraria .card,
+        body.theme-terraria .nav-btn,
+        body.theme-celeste .card,
+        body.theme-celeste .nav-btn {
+            border-radius: 0 !important;
+            border: 2px solid var(--border-color);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+        }
+        
+        body.theme-minecraft .nav-menu-container,
+        body.theme-terraria .nav-menu-container {
+             backdrop-filter: none !important;
+             background: var(--bg-dark);
+             opacity: 0.95;
+        }
+
+        /* Stardew Valley (Cozy/Rounded) */
+        body.theme-stardew .card,
+        body.theme-stardew .nav-btn {
+            border-radius: 15px;
+            border: 2px solid #8d6e63;
+            background: rgba(255, 248, 225, 0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Cyberpunk / Vice City (Neon/Glow) */
+        body.theme-cyberpunk .card,
+        body.theme-vice-city .card {
+            border: 1px solid var(--accent-primary);
+            box-shadow: 0 0 15px var(--accent-primary), inset 0 0 10px rgba(0, 243, 255, 0.1);
+            border-radius: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+        }
+        
+        body.theme-cyberpunk .nav-btn.active,
+        body.theme-vice-city .nav-btn.active {
+            text-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        /* Doom (Aggressive/Hard) */
+        body.theme-doom .card,
+        body.theme-doom .nav-btn {
+            border: 2px solid #990000;
+            border-radius: 0;
+            background: rgba(50, 0, 0, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+        
+        /* Fix for Cinzel font themes expanding nav */
+        body.theme-the-witcher .nav-btn,
+        body.theme-hollow-knight .nav-btn,
+        body.theme-god-of-war .nav-btn,
+        body.theme-elden-ring .nav-btn {
+            font-size: 0.9rem;
+            letter-spacing: 0;
+        }
+
+        /* Fix for Terraria wide font */
+        body.theme-terraria .nav-btn {
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            letter-spacing: 0;
+        }
+        
+        /* Fallout (Terminal/Retro) */
+        body.theme-fallout .card,
+        body.theme-fallout .nav-btn {
+            border: 1px dashed var(--accent-primary);
+            border-radius: 5px;
+            background: rgba(0, 20, 0, 0.8);
+            font-family: 'VT323', monospace;
+            box-shadow: 0 0 5px var(--accent-primary);
+        }
+        
+        body.theme-fallout * {
+            text-shadow: 0 0 2px var(--accent-primary);
+        }
+
+        /* Hollow Knight (Elegant/Dark) */
+        body.theme-hollow-knight .card {
+            border: 1px double var(--text-secondary);
+            border-radius: 8px;
+            background: linear-gradient(to bottom, rgba(15, 21, 32, 0.9), rgba(0,0,0,0.8));
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        /* Portal (Clean/Scientific) */
+        body.theme-aperture-science .card {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border-radius: 20px;
+            border: none;
+        }
+        
+        body.theme-aperture-science .section-title,
+        body.theme-aperture-science h3 {
+            color: #333;
+        }
+        
+        body.theme-aperture-science p,
+        body.theme-aperture-science li {
+            color: #555 !important;
+        }
+
+        /* Factorio (Industrial) */
+        body.theme-factorio .card {
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(44, 62, 80, 0.9),
+                rgba(44, 62, 80, 0.9) 10px,
+                rgba(30, 40, 50, 0.9) 10px,
+                rgba(30, 40, 50, 0.9) 20px
+            );
+            border: 2px solid #7f8c8d;
+            border-radius: 2px;
+        }
+
+        /* Subtle Grid Background Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation Bar */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            height: var(--nav-height);
+            background: rgba(10, 11, 16, 0.85);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+        }
+
+        .nav-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 8px 12px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            color: var(--accent-primary);
+        }
+
+        .nav-btn:hover::after, .nav-btn.active::after {
+            width: 100%;
+        }
+
+        .nav-menu-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: space-between;
+            margin-left: 40px;
+        }
+
+        .hamburger-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-resume, .btn-contact {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-resume {
+            color: var(--accent-primary);
+            border: 1px solid var(--accent-primary);
+        }
+
+        .btn-resume:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .btn-contact {
+            background: var(--accent-primary);
+            color: #000;
+            border: 1px solid var(--accent-primary);
+        }
+
+        .btn-contact:hover {
+            background: transparent;
+            color: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-out;
+            flex: 1 0 auto; /* Allow growing but not shrinking below content size */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .main-footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-top: auto; /* Ensure it pushes to bottom if flex fails */
+            text-align: center;
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .social-column {
+            flex: 2;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .credits-column {
+            text-align: right;
+        }
+
+        .footer-heading {
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+
+        .status-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-btn {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-family: var(--font-heading);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .credits-text {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        /* --- Shared Styles for Inner Pages --- */
+        /* These classes are used by the loaded HTML content */
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            border-left: 5px solid var(--accent-primary);
+            padding-left: 15px;
+            line-height: 1;
+        }
+
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .game-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .game-btn:hover {
+            background: var(--accent-primary);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-primary);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 15px 20px;
+                justify-content: space-between;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column, .social-column, .credits-column {
+                width: 100%;
+                min-width: auto;
+                text-align: center;
+            }
+
+            .status-item {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+
+            .hamburger-btn {
+                display: block;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .nav-menu-container {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                z-index: 1000;
+                background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), var(--bg-panel);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                border-left: 1px solid var(--border-color);
+                transition: right 0.3s ease-in-out;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            }
+
+            .nav-menu-container.active {
+                right: 0;
+            }
+            
+            .nav-links {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                overflow-x: visible;
+                padding-bottom: 20px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-radius: 0;
+                font-size: 1.2rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                color: var(--text-primary);
+                text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            }
+
+            .nav-btn:hover {
+                background: rgba(255,255,255,0.05);
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 15px;
+                margin-top: 15px;
+            }
+
+            .btn-resume, .btn-contact {
+                width: 60%;
+                text-align: center;
+                padding: 8px;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .btn-resume, .btn-contact {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+                margin: 20px auto;
+            }
+
+            .nav-brand {
+                font-size: 1.2rem;
+            }
+
+            .nav-brand img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <img src="https://avatars.githubusercontent.com/u/70892515?v=4" alt="Avatar">
+            <span>Shuvranshu</span>
+        </div>
+        
+        <button class="hamburger-btn" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-menu-container">
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="loadPage('pages/about.html', this)">Profile</button>
+                <button class="nav-btn" onclick="loadPage('pages/skills.html', this)">Skills</button>
+                <button class="nav-btn" onclick="loadPage('pages/projects.html', this)">Projects</button>
+                <button class="nav-btn" onclick="loadPage('pages/services.html', this)">Services</button>
+                <button class="nav-btn" onclick="loadPage('pages/certifications.html', this)">Awards</button>
+                <button class="nav-btn" onclick="loadPage('pages/gallery.html', this)">Gallery</button>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn-resume">RESUME</a>
+                <a href="mailto:sahooshuvranshusekhar@gmail.com" class="btn-contact">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="content-area" class="container">
+        <!-- Content will be loaded here via JS -->
+        <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+            <div style="text-align: center;">
+                <h2 style="font-family: var(--font-heading); color: var(--accent-primary);">INITIALIZING INTERFACE...</h2>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            
+            <!-- System Status -->
+            <div class="footer-column status-column">
+                <h4 class="footer-heading">SYSTEM STATUS</h4>
+                <div class="status-list">
+                    <div class="status-item">
+                        <span>CORE:</span> <span style="color: #00ff00;">ONLINE</span>
+                    </div>
+                    <div class="status-item">
+                        <span>LEVEL:</span> <span>2025</span>
+                    </div>
+                    <div class="status-item">
+                        <span>QUEST:</span> <span>FULL STACK DEV</span>
+                    </div>
+                    <div class="status-item">
+                        <span>LOCATION:</span> <span>EARTH [C-137]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="footer-column social-column">
+                <h4 class="footer-heading">CONNECT</h4>
+                <div class="social-links">
+                    <a href="https://github.com/SahooShuvranshu" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://bsky.app/profile/sahooshuvranshu.me" target="_blank" class="social-btn"><i class="fab fa-bluesky"></i> Bluesky</a>
+                    <a href="https://linkedin.com/in/shuvranshu-sekhar-sahoo-931396207" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.instagram.com/its_shuvranshu.alive/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://discord.com/users/879695880528216075" target="_blank" class="social-btn"><i class="fab fa-discord"></i> Discord</a>
+                    <a href="https://www.snapchat.com/add/itscrystaldev" target="_blank" class="social-btn"><i class="fab fa-snapchat"></i> Snapchat</a>
+                    <a href="https://www.youtube.com/@sahooshuvranshu" target="_blank" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="mailto:sahooshuvranshusekhar@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+
+            <!-- Quick Nav / Credits -->
+            <div class="footer-column credits-column">
+                <h4 class="footer-heading">CREDITS</h4>
+                <p class="credits-text">
+                    Designed & Built by<br>
+                    <strong style="color: var(--text-primary); font-size: 1rem;">Shuvranshu Sekhar Sahoo</strong><br>
+                    &copy; 2025 All Rights Reserved.<br>
+                    <span style="opacity: 0.5; font-size: 0.7rem;">v1.0</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher Button (Controlled by JS) -->
+    <button id="theme-switcher" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 10000; background: var(--accent-primary); color: #000; border: none; padding: 10px 15px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <i class="fas fa-palette"></i> Theme
+    </button>
+
+    <script>
+        // Theme Definitions
+        const themes = [
+            { // Jan: Elden Ring (Gold/Dark Fantasy)
+                name: "Elden Ring",
+                accent: "#c3a94e",
+                secondary: "#8e7d3e",
+                bgDark: "#1a1810",
+                bgPanel: "rgba(26, 24, 16, 0.9)",
+                fontHeading: "'Cinzel', serif",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(26, 24, 16, 0.9), rgba(26, 24, 16, 0.95)), url('https://images.unsplash.com/photo-1599939571322-792a326991f2?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Feb: Stardew Valley (Spring/Pastel)
+                name: "Stardew",
+                accent: "#ffa000",
+                secondary: "#4caf50",
+                bgDark: "#2c1e14",
+                bgPanel: "rgba(60, 40, 30, 0.8)",
+                fontHeading: "'VT323', monospace",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(44, 30, 20, 0.85), rgba(44, 30, 20, 0.9)), url('https://images.unsplash.com/photo-1462556791646-c201b8241dd6?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Mar: Fallout (Terminal/Retro)
+                name: "Fallout",
+                accent: "#00ff00",
+                secondary: "#e6b800",
+                bgDark: "#001400",
+                bgPanel: "rgba(0, 20, 0, 0.9)",
+                fontHeading: "'VT323', monospace",
+                fontBody: "'VT323', monospace",
+                bgImage: "linear-gradient(rgba(0, 20, 0, 0.9), rgba(0, 20, 0, 0.95)), url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Apr: Halo (Sci-Fi/Military)
+                name: "Halo",
+                accent: "#78b159",
+                secondary: "#1a1a1a",
+                bgDark: "#0d1117",
+                bgPanel: "rgba(13, 17, 23, 0.9)",
+                fontHeading: "'Share Tech Mono', monospace",
+                fontBody: "'Roboto', sans-serif",
+                bgImage: "linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.95)), url('https://images.unsplash.com/photo-1626263468007-a9e0cf83f1ac?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // May: Terraria (Adventure/Forest)
+                name: "Terraria",
+                accent: "#26a65b",
+                secondary: "#8e44ad",
+                bgDark: "#1e272e",
+                bgPanel: "rgba(30, 39, 46, 0.8)",
+                fontHeading: "'Press Start 2P', cursive",
+                fontBody: "'VT323', monospace",
+                bgImage: "linear-gradient(rgba(30, 39, 46, 0.85), rgba(30, 39, 46, 0.9)), url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Jun: Minecraft (Blocky/Green)
+                name: "Minecraft",
+                accent: "#5b8731",
+                secondary: "#795548",
+                bgDark: "#1a1a1a",
+                bgPanel: "rgba(20, 20, 20, 0.8)",
+                fontHeading: "'VT323', monospace",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1587502536575-6dfba0a6e017?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Jul: GTA Vice City (Retro/Neon)
+                name: "Vice City",
+                accent: "#ff00ff",
+                secondary: "#00f3ff",
+                bgDark: "#1a0b2e",
+                bgPanel: "rgba(40, 10, 50, 0.8)",
+                fontHeading: "'Permanent Marker', cursive",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(26, 11, 46, 0.85), rgba(26, 11, 46, 0.9)), url('https://images.unsplash.com/photo-1561484930-998b6a7b22e8?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Aug: The Witcher 3 (Dark Fantasy)
+                name: "The Witcher",
+                accent: "#cd201f",
+                secondary: "#c0c0c0",
+                bgDark: "#1a1a1a",
+                bgPanel: "rgba(30, 30, 30, 0.9)",
+                fontHeading: "'Cinzel', serif",
+                fontBody: "'Roboto', sans-serif",
+                bgImage: "linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.95)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Sep: Doom (Aggressive/Red)
+                name: "Doom",
+                accent: "#ff0000",
+                secondary: "#990000",
+                bgDark: "#000000",
+                bgPanel: "rgba(20, 0, 0, 0.8)",
+                fontHeading: "'Black Ops One', cursive",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1618557219629-1b21343d1d2c?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Oct: Hollow Knight (Moody/Dark)
+                name: "Hollow Knight",
+                accent: "#a8b9cc",
+                secondary: "#ffffff",
+                bgDark: "#0f1520",
+                bgPanel: "rgba(15, 21, 32, 0.9)",
+                fontHeading: "'Cinzel', serif",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(15, 21, 32, 0.9), rgba(15, 21, 32, 0.95)), url('https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Nov: God of War (Nordic)
+                name: "God of War",
+                accent: "#c0392b",
+                secondary: "#3498db",
+                bgDark: "#1c2833",
+                bgPanel: "rgba(33, 47, 61, 0.9)",
+                fontHeading: "'Cinzel', serif",
+                fontBody: "'Roboto', sans-serif",
+                bgImage: "linear-gradient(rgba(28, 40, 51, 0.9), rgba(28, 40, 51, 0.95)), url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=1920&auto=format&fit=crop')"
+            },
+            { // Dec: Cyberpunk (Neon/Future)
+                name: "Cyberpunk",
+                accent: "#fcee0a",
+                secondary: "#00f3ff",
+                bgDark: "#0a0b10",
+                bgPanel: "rgba(20, 25, 35, 0.7)",
+                fontHeading: "'Rajdhani', sans-serif",
+                fontBody: "'Roboto Mono', monospace",
+                bgImage: "linear-gradient(rgba(10, 11, 16, 0.9), rgba(10, 11, 16, 0.95)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop')"
+            }
+        ];
+
+        let currentThemeIndex = new Date().getMonth();
+
+        // Theme Logic (Month-based Game Themes)
+        function applyTheme(index) {
+            if (index !== undefined) {
+                currentThemeIndex = index;
+            }
+            
+            // Wrap around if index is out of bounds
+            if (currentThemeIndex >= themes.length) currentThemeIndex = 0;
+            if (currentThemeIndex < 0) currentThemeIndex = themes.length - 1;
+
+            const theme = themes[currentThemeIndex];
+            const root = document.documentElement;
+
+            // Apply Theme Variables
+            root.style.setProperty('--accent-primary', theme.accent);
+            root.style.setProperty('--accent-secondary', theme.secondary);
+            root.style.setProperty('--bg-dark', theme.bgDark);
+            root.style.setProperty('--bg-panel', theme.bgPanel);
+            root.style.setProperty('--font-heading', theme.fontHeading);
+            root.style.setProperty('--font-body', theme.fontBody);
+            root.style.setProperty('--bg-image', theme.bgImage);
+            
+            // Add Theme Class to Body for Specific UI Overrides
+            document.body.className = ''; // Clear previous classes
+            document.body.classList.add('theme-' + theme.name.toLowerCase().replace(/\s+/g, '-'));
+            
+            // Update Button Text
+            const themeBtn = document.getElementById('theme-switcher');
+            if(themeBtn) themeBtn.innerHTML = `<i class="fas fa-palette"></i> ${theme.name}`;
+
+            console.log(`Theme Applied: ${theme.name}`);
+        }
+        applyTheme();
+
+        // Page Loading Logic
+        async function loadPage(url, btnElement) {
+            const contentArea = document.getElementById('content-area');
+            
+            // Update Active Button
+            if (btnElement) {
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                btnElement.classList.add('active');
+            }
+
+            // Loading State
+            contentArea.style.opacity = '0.5';
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to load');
+                const html = await response.text();
+                
+                // Fade Out -> Change Content -> Fade In
+                contentArea.style.opacity = '0';
+                setTimeout(() => {
+                    contentArea.innerHTML = html;
+                    contentArea.style.opacity = '1';
+                    window.scrollTo(0, 0);
+                    
+                    // Initialize Gallery if loaded
+                    if (url.includes('gallery.html')) {
+                        setTimeout(initGallery, 100);
+                    }
+                }, 200);
+                
+            } catch (e) {
+                contentArea.innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <h3 style="color: #ff4444;">CONNECTION ERROR</h3>
+                        <p>Failed to retrieve data packet.</p>
+                    </div>
+                `;
+                contentArea.style.opacity = '1';
+            }
+        }
+
+        // Gallery Auto-Loader
+        function initGallery() {
+            const galleryGrid = document.getElementById('gallery-grid');
+            if (!galleryGrid) return;
+
+            // Clear loading spinner
+            galleryGrid.innerHTML = '';
+
+            let index = 1;
+            const maxImages = 50; // Limit to prevent infinite loops
+            let loadedCount = 0;
+
+            function loadNextImage() {
+                if (index > maxImages) {
+                    if (loadedCount === 0) {
+                        galleryGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">No images found.</p>';
+                    }
+                    return;
+                }
+
+                const img = new Image();
+                const currentId = index;
+                
+                img.onload = function() {
+                    const card = document.createElement('div');
+                    card.className = 'card gallery-item';
+                    card.style.padding = '0';
+                    card.style.overflow = 'hidden';
+                    card.style.height = '250px';
+                    card.style.position = 'relative';
+                    
+                    // Image Styling
+                    this.style.width = '100%';
+                    this.style.height = '100%';
+                    this.style.objectFit = 'cover';
+                    this.style.transition = 'transform 0.5s';
+                    
+                    // Hover Effect (Zoom)
+                    card.onmouseenter = () => { this.style.transform = 'scale(1.1)'; };
+                    card.onmouseleave = () => { this.style.transform = 'scale(1)'; };
+
+                    card.appendChild(this);
+                    galleryGrid.appendChild(card);
+                    loadedCount++;
+                    
+                    // Try next
+                    index++;
+                    loadNextImage();
+                };
+
+                img.onerror = function() {
+                    // If 1.jpg fails, maybe try png? For now, just stop or skip.
+                    // We will stop on the first missing file to avoid 404 spam.
+                    if (loadedCount === 0 && index === 1) {
+                         galleryGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">No images found.</p>';
+                    }
+                    // Stop trying
+                };
+
+                img.src = `media/${currentId}.jpg`;
+            }
+
+            loadNextImage();
+        }
+
+        // Load Default Page
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstBtn = document.querySelector('.nav-btn');
+            loadPage('pages/about.html', firstBtn);
+
+            // Hamburger Menu Logic
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const navMenu = document.querySelector('.nav-menu-container');
+            const navLinks = document.querySelectorAll('.nav-btn');
+
+            hamburgerBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = hamburgerBtn.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('active');
+                        const icon = hamburgerBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Configuration: Set to true to show the theme switcher button
+            const SHOW_THEME_SWITCHER = false; 
+
+            // Theme Switcher Logic
+            const themeBtn = document.getElementById('theme-switcher');
+            if(SHOW_THEME_SWITCHER && themeBtn) {
+                themeBtn.style.display = 'block';
+                themeBtn.addEventListener('click', () => {
+                    applyTheme(currentThemeIndex + 1);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

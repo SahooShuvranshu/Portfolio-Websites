@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Shuvranshu</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&family=Roboto+Mono:wght@300;400;700&family=VT323&family=Press+Start+2P&family=Cinzel:wght@400;700&family=Permanent+Marker&family=Share+Tech+Mono&family=Black+Ops+One&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Copying core styles from index.html to ensure theme consistency */
+        :root {
+            --accent-primary: #00f3ff;
+            --accent-secondary: #ff00ff;
+            --bg-dark: #0a0b10;
+            --bg-panel: rgba(20, 25, 35, 0.7);
+            --text-primary: #e0e6ed;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glass-blur: blur(10px);
+            --nav-height: 70px;
+            --font-heading: 'Rajdhani', sans-serif;
+            --font-body: 'Roboto Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            background-image: var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .error-container {
+            background: var(--bg-panel);
+            padding: 50px;
+            border: 2px solid var(--accent-primary);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--accent-primary);
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent-primary);
+            color: #000;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-primary);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Theme Specific Overrides (Simplified for 404) */
+        body.theme-minecraft .error-container { border: 4px solid #7d7d7d; border-radius: 0; image-rendering: pixelated; }
+        body.theme-minecraft .home-btn { border: 2px solid #000; border-radius: 0; box-shadow: 4px 4px 0 #000; }
+        
+        body.theme-doom .error-container { border: 2px solid #ff0000; box-shadow: 0 0 50px #ff0000; }
+        body.theme-doom h1 { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
+        body.theme-doom .home-btn { background: #ff0000; color: #fff; }
+
+        body.theme-elden-ring h1 { text-shadow: 0 0 20px #c3a94e; }
+        body.theme-elden-ring .error-container { border-color: #c3a94e; }
+
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>Mission Failed</h2>
+        <p>The coordinates you are looking for do not exist in this sector.</p>
+        <a href="index.html" class="home-btn">Respawn at Home</a>
+    </div>
+
+    <script>
+        // Minimal Theme Logic for 404 Page
+        const themes = [
+            { name: "Elden Ring", accent: "#c3a94e", bgDark: "#1a1810", bgPanel: "rgba(26, 24, 16, 0.9)", fontHeading: "'Cinzel', serif", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(26, 24, 16, 0.9), rgba(26, 24, 16, 0.95)), url('https://images.unsplash.com/photo-1599939571322-792a326991f2?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Stardew", accent: "#ffa000", bgDark: "#2c1e14", bgPanel: "rgba(60, 40, 30, 0.8)", fontHeading: "'VT323', monospace", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(44, 30, 20, 0.85), rgba(44, 30, 20, 0.9)), url('https://images.unsplash.com/photo-1462556791646-c201b8241dd6?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Breath of the Wild", accent: "#9ae6b4", bgDark: "#0f1a20", bgPanel: "rgba(20, 30, 35, 0.8)", fontHeading: "'Cinzel', serif", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(15, 26, 32, 0.85), rgba(15, 26, 32, 0.9)), url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Halo", accent: "#78b159", bgDark: "#0d1117", bgPanel: "rgba(13, 17, 23, 0.9)", fontHeading: "'Share Tech Mono', monospace", fontBody: "'Roboto', sans-serif", bgImage: "linear-gradient(rgba(13, 17, 23, 0.9), rgba(13, 17, 23, 0.95)), url('https://images.unsplash.com/photo-1626263468007-a9e0cf83f1ac?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Terraria", accent: "#26a65b", bgDark: "#1e272e", bgPanel: "rgba(30, 39, 46, 0.8)", fontHeading: "'Press Start 2P', cursive", fontBody: "'VT323', monospace", bgImage: "linear-gradient(rgba(30, 39, 46, 0.85), rgba(30, 39, 46, 0.9)), url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Minecraft", accent: "#5b8731", bgDark: "#1a1a1a", bgPanel: "rgba(20, 20, 20, 0.8)", fontHeading: "'VT323', monospace", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1587502536575-6dfba0a6e017?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Vice City", accent: "#ff00ff", bgDark: "#1a0b2e", bgPanel: "rgba(40, 10, 50, 0.8)", fontHeading: "'Permanent Marker', cursive", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(26, 11, 46, 0.85), rgba(26, 11, 46, 0.9)), url('https://images.unsplash.com/photo-1561484930-998b6a7b22e8?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "The Witcher", accent: "#cd201f", bgDark: "#1a1a1a", bgPanel: "rgba(30, 30, 30, 0.9)", fontHeading: "'Cinzel', serif", fontBody: "'Roboto', sans-serif", bgImage: "linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.95)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Doom", accent: "#ff0000", bgDark: "#000000", bgPanel: "rgba(20, 0, 0, 0.8)", fontHeading: "'Black Ops One', cursive", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1618557219629-1b21343d1d2c?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Hollow Knight", accent: "#a8b9cc", bgDark: "#0f1520", bgPanel: "rgba(15, 21, 32, 0.9)", fontHeading: "'Cinzel', serif", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(15, 21, 32, 0.9), rgba(15, 21, 32, 0.95)), url('https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "God of War", accent: "#c0392b", bgDark: "#1c2833", bgPanel: "rgba(33, 47, 61, 0.9)", fontHeading: "'Cinzel', serif", fontBody: "'Roboto', sans-serif", bgImage: "linear-gradient(rgba(28, 40, 51, 0.9), rgba(28, 40, 51, 0.95)), url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=1920&auto=format&fit=crop')" },
+            { name: "Cyberpunk", accent: "#fcee0a", bgDark: "#0a0b10", bgPanel: "rgba(20, 25, 35, 0.7)", fontHeading: "'Rajdhani', sans-serif", fontBody: "'Roboto Mono', monospace", bgImage: "linear-gradient(rgba(10, 11, 16, 0.9), rgba(10, 11, 16, 0.95)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop')" }
+        ];
+
+        const currentThemeIndex = new Date().getMonth();
+        const theme = themes[currentThemeIndex];
+        const root = document.documentElement;
+
+        root.style.setProperty('--accent-primary', theme.accent);
+        root.style.setProperty('--bg-dark', theme.bgDark);
+        root.style.setProperty('--bg-panel', theme.bgPanel);
+        root.style.setProperty('--font-heading', theme.fontHeading);
+        root.style.setProperty('--font-body', theme.fontBody);
+        root.style.setProperty('--bg-image', theme.bgImage);
+        
+        document.body.classList.add('theme-' + theme.name.toLowerCase().replace(/\s+/g, '-'));
+    </script>
+</body>
+</html>
